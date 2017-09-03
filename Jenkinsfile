@@ -3,6 +3,7 @@ node {
      stage('Build') {
      		    echo "I'm building"
 		    sh 'make'
+		    archiveArtifacts artifacts: 'app', onlyIfSuccessful: true
 	}
 	stage('Test') {
 		      echo "I'm testing"
