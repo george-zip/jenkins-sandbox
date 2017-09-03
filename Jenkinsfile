@@ -7,6 +7,9 @@ node {
 	}
 	stage('Test') {
 		      echo "I'm testing"
+		      echo "Build ID: ${env.BUILD_ID}"
+		      echo "Job ID: ${env.JOB_NAME}"
+		      echo "Jenkins workspace: ${env.WORKSPACE}"
 	}
 	stage('Deploy') {
 		echo "Shit's getting deployed"
