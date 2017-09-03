@@ -14,6 +14,9 @@ node {
 	stage('Deploy') {
 		echo "Shit's getting deployed"
 		echo currentBuild.result
+		withEnv(["SPAM_BUILD_NUMBER=${env.BUILD_NUMBER}"]) {
+		    echo "SPAM: ${SPAM_BUILD_NUMBER}"
+		}
 	}
 }
 
