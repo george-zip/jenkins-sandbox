@@ -1,4 +1,4 @@
-node("foosh") {
+node {
      checkout scm	
      stage('Build') {
      		    echo "I'm building"
@@ -19,10 +19,4 @@ node("foosh") {
 		}
 	}
 }
-node("blah") {
-	     stage("one") {
-	     		  echo "two"
-			  }
-}
-
 		     
