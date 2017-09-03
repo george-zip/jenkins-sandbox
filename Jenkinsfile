@@ -10,6 +10,7 @@ node {
 	}
 	stage('Deploy') {
 		echo "Shit's getting deployed"
+		echo currentBuild.result
 	}
 }
 
