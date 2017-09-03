@@ -1,4 +1,4 @@
-node {
+node("foosh") {
      checkout scm	
      stage('Build') {
      		    echo "I'm building"
@@ -18,6 +18,11 @@ node {
 		    echo "SPAM: ${SPAM_BUILD_NUMBER}"
 		}
 	}
+}
+node("blah") {
+	     stage("one") {
+	     		  echo "two"
+			  }
 }
 
 		     
