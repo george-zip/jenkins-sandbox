@@ -1,3 +1,9 @@
+properties(
+    [
+        pipelineTriggers([cron('0 0 * * *')]),
+    ]
+)
+
 node {
      checkout scm	
      stage('Build') {
