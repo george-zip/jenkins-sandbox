@@ -7,13 +7,13 @@
 #* 
 #***********************
 
-CFLAGS =  -Wall -g -std=c++11
+CFLAGS =  -Wall -g 
 SOURCE = main
 
 all: app
 
 ${SOURCE}.o: ${SOURCE}.cpp
-	g++ -I -c -o ${SOURCE}.o ${SOURCE}.cpp ${CFLAGS}
+	g++ -c -o ${SOURCE}.o ${SOURCE}.cpp 
 
 app: ${SOURCE}.o
 	g++ -o app ${SOURCE}.o ${CFLAGS} ${LIBS}
