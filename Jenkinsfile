@@ -33,9 +33,10 @@ node {
 		withEnv(['SPAM=tasty']) {
 			sh 'echo $SPAM'
 		}
+		sh '''
+			. /home/chris/dev/jenkins-sandbox/environment.sh
+		'''
 		sh 'echo $SPAM'
-		echo "This always runs"
-		mail to: 't@cmgwallerstein.net'
 	}
 }
 		     
