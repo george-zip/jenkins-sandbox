@@ -4,6 +4,9 @@ node {
 			sh 'echo "Fail"; exit 0'
 			currentBuild.result = "SUCCESS"
 		}
+		stage('Sanity Check') {
+			input "Ready to deploy?"
+		}
 		echo "This will run if successful"
 	} 
 	catch(e) {
@@ -31,6 +34,7 @@ node {
 		}
 		sh 'echo $SPAM'
 		echo "This always runs"
+		mail to: 't@cmgwallerstein.net'
 	}
 }
 		     
