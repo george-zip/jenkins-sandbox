@@ -7,7 +7,7 @@ node {
 	} 
 	catch(e) {
 		echo "This will run if failed"
-		currentBuild.result = "SPAM"
+		//currentBuild.result = "SPAM"
 		throw e
 	} 
 	finally {
