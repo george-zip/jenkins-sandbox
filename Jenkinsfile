@@ -29,6 +29,7 @@ node {
 		withEnv(['SPAM=tasty']) {
 			sh 'echo $SPAM'
 		}
+		sh 'echo $SPAM'
 		echo "This always runs"
 	}
 }
