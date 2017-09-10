@@ -34,7 +34,7 @@ node {
 			sh 'echo $SPAM'
 		}
 		sh '''
-		  source /home/chris/dev/jenkins-sandbox/environment.sh
+		  . /home/chris/dev/jenkins-sandbox/environment.sh
 		'''
 		sh 'echo $SPAM'
 	}
