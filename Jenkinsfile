@@ -2,12 +2,13 @@ node {
 	try {
 		stage('Test') {
 			sh 'echo "Fail"; exit 1'
+			currentBuild.result = "SUCCESS"
 		}
 		echo "This will run if successful"
 	} 
 	catch(e) {
 		echo "This will run if failed"
-		//currentBuild.result = "SPAM"
+		currentBuild.result = "FAILURE"
 		throw e
 	} 
 	finally {
