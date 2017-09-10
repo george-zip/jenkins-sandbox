@@ -16,6 +16,8 @@ node {
 		}
 
 		def previousResult = currentBuild.previousBuild?.result
+		echo currentResult
+		echo previousResult
 		if(previousResult != null && previousResult != currentResult) {
 			echo "This will runif the state of the pipeline has changed"
 			echo "For example if the pipeline was previously failing but not is successful"
