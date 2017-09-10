@@ -6,6 +6,7 @@ node {
 		}
 		stage('Sanity Check') {
 			input "Ready to deploy?"
+			writeFile file: "output/usefulfile.txt", text: "User accepted it"
 		}
 		echo "This will run if successful"
 	} 
