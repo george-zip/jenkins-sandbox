@@ -1,32 +1,27 @@
-properties(
-    [
-        pipelineTriggers([cron('0 0 * * *')]),
-    ]
-)
-
 node {
-     checkout scm	
-     stage('Build') {
-     	echo "I'm building"
-	}
-	stage('Test') {
-		echo "I'm testing"
-		echo "Build ID: ${env.BUILD_ID}"
-		echo "Job ID: ${env.JOB_NAME}"
-		echo "Jenkins workspace: ${env.WORKSPACE}"
-	}
-	stage('Deploy') {
-		echo "Shit's getting deployed"
-		echo currentBuild.result
-		retry(3) {
-			echo "foo"
+	try {
+		stage('Test') {
+			sh 'echo "Fail"; exit 1'
 		}
-		timeout(time: 3, unit: 'SECONDS') {
-			echo "timeout"
-		} 
-		withEnv(["SPAM_BUILD_NUMBER=${env.BUILD_NUMBER}"]) {
-		    echo "SPAM: ${SPAM_BUILD_NUMBER}"
+		echo "This will run iff successful"
+	} 
+	catch(e) {
+		echo "This will run if failed"
+		throw e
+	} 
+	finally {
+		def currentResult = currentBuild.result ?: 'SUCCESS'
+		if(currentResult == 'UNSTABLE') {
+			echo "This will run if the run was marked as unstable"
 		}
+
+		def previousResult = currentBuild.previousBuild?.result
+		if(previousResult != null && previousResult != currentResult) {
+			echo "This will runif the state of the pipeline has changed"
+			echo "For example if the pipeline was previously failing but not is successful"
+		}
+
+		echo "This always runs"
 	}
 }
 		     
