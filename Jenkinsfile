@@ -35,8 +35,10 @@ node {
 		}
 		sh '''
 		  . /home/chris/dev/jenkins-sandbox/environment.sh
-		'''
-		sh 'echo $SPAM'
+		  echo $SPAM
+		''' 	
+		echo $SPAM
+		echo env.SPAM
 	}
 }
 		     
