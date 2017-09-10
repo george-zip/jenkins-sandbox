@@ -26,6 +26,9 @@ node {
 			echo "For example if the pipeline was previously failing but not is successful"
 		}
 
+		withEnv(['SPAM=tasty']) {
+			sh 'echo $SPAM'
+		}
 		echo "This always runs"
 	}
 }
