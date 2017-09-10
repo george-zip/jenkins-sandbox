@@ -1,7 +1,7 @@
 node {
 	try {
 		stage('Test') {
-			sh 'echo "Fail"; exit 1'
+			sh 'echo "Fail"; exit 0'
 			currentBuild.result = "SUCCESS"
 		}
 		echo "This will run if successful"
